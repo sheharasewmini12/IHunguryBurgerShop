@@ -75,10 +75,6 @@ public class PlaceOrderForm extends javax.swing.JFrame {
         jTextField2.setEditable(false);
         jTextField2.setText("txtCustomerId");
 
-        jTextField3.setText("txtCustomerName");
-
-        jTextField4.setText("txtBurgerQuantity");
-
         jTextField6.setEditable(false);
         jTextField6.setText("txtOrderValue");
 
@@ -126,10 +122,10 @@ public class PlaceOrderForm extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextField1)
                                 .addComponent(jTextField2)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                .addComponent(jTextField3)
                                 .addComponent(jTextField4)
                                 .addComponent(jTextField6)
-                                .addComponent(cmbOrderStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(cmbOrderStatus, 0, 135, Short.MAX_VALUE)))))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
