@@ -9,6 +9,11 @@ import ihungryburgershop.controller.OrderController;
 import ihungryburgershop.model.Customer;
 import ihungryburgershop.model.Order;
 import javax.swing.JOptionPane;
+import ihungryburgershop.controller.CustomerController;
+import ihungryburgershop.controller.OrderController;
+import ihungryburgershop.model.Customer;
+import ihungryburgershop.model.Order;
+import javax.swing.table.DefaultTableModel;
 
 public class SearchCustomerForm extends javax.swing.JFrame {
 
@@ -28,15 +33,32 @@ public class SearchCustomerForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButton2ActionPerformed = new javax.swing.JButton();
         txtCustomerId = new javax.swing.JTextField();
         txtCustomerName = new javax.swing.JTextField();
         txtTotalPurchases = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblCustomerOrders = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,10 +70,10 @@ public class SearchCustomerForm extends javax.swing.JFrame {
 
         jLabel4.setText("Total Purchases");
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2ActionPerformed.setText("Search");
+        jButton2ActionPerformed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton2ActionPerformedActionPerformed(evt);
             }
         });
 
@@ -70,6 +92,19 @@ public class SearchCustomerForm extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        tblCustomerOrders.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Order ID", "Cust_ID", "Cust_Name", "Burger_Qty", "Order_Status", "Order_Value"
+            }
+        ));
+        jScrollPane2.setViewportView(tblCustomerOrders);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,12 +125,16 @@ public class SearchCustomerForm extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(58, 58, 58)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
+                                    .addComponent(jButton2ActionPerformed, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                                     .addComponent(txtTotalPurchases)
                                     .addComponent(txtCustomerName)
                                     .addComponent(txtCustomerId)
                                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(137, 137, 137))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +146,7 @@ public class SearchCustomerForm extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtCustomerId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(jButton2ActionPerformed)
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -116,9 +155,11 @@ public class SearchCustomerForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtTotalPurchases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -128,40 +169,52 @@ public class SearchCustomerForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCustomerNameActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformedActionPerformed
         String customerId = txtCustomerId.getText().trim();
 
         if (customerId.isEmpty()) {
-
-            JOptionPane.showMessageDialog(
+            javax.swing.JOptionPane.showMessageDialog(
                     this,
                     "Please enter Customer ID.",
                     "Validation Error",
-                    JOptionPane.ERROR_MESSAGE
+                    javax.swing.JOptionPane.ERROR_MESSAGE
             );
-
-            txtCustomerId.requestFocus();
             return;
         }
 
         Customer customer = CustomerController.searchCustomer(customerId);
 
         if (customer == null) {
-
-            JOptionPane.showMessageDialog(
+            javax.swing.JOptionPane.showMessageDialog(
                     this,
                     "Customer not found.",
                     "Search Result",
-                    JOptionPane.INFORMATION_MESSAGE
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE
             );
 
             txtCustomerName.setText("");
             txtTotalPurchases.setText("");
 
+            DefaultTableModel emptyModel
+                    = (DefaultTableModel) tblCustomerOrders.getModel();
+            emptyModel.setRowCount(0);
+
             return;
         }
 
         txtCustomerName.setText(customer.getCustomerName());
+
+        DefaultTableModel model = new DefaultTableModel(
+                new Object[]{
+                    "Order ID",
+                    "Customer ID",
+                    "Customer Name",
+                    "Burger Quantity",
+                    "Order Status",
+                    "Order Value"
+                },
+                0
+        );
 
         double totalPurchases = 0;
 
@@ -169,14 +222,25 @@ public class SearchCustomerForm extends javax.swing.JFrame {
 
             if (order.getCustomerId().equalsIgnoreCase(customerId)) {
 
+                model.addRow(new Object[]{
+                    order.getOrderId(),
+                    order.getCustomerId(),
+                    order.getCustomerName(),
+                    order.getQuantity(),
+                    order.getStatus(),
+                    String.format("Rs. %.2f", order.getOrderValue())
+                });
+
                 totalPurchases += order.getOrderValue();
             }
         }
 
+        tblCustomerOrders.setModel(model);
+
         txtTotalPurchases.setText(
                 String.format("Rs. %.2f", totalPurchases)
         );
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformedActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         HomeForm homeForm = new HomeForm();
@@ -220,12 +284,16 @@ public class SearchCustomerForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton2ActionPerformed;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblCustomerOrders;
     private javax.swing.JTextField txtCustomerId;
     private javax.swing.JTextField txtCustomerName;
     private javax.swing.JTextField txtTotalPurchases;
