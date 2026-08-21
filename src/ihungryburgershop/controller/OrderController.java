@@ -126,4 +126,25 @@ public class OrderController {
 
         return true;
     }
+
+    public static boolean updateOrder(String orderId,
+            String customerName,
+            int quantity,
+            String status) {
+
+        for (Order order : orderList) {
+
+            if (order.getOrderId().equalsIgnoreCase(orderId)) {
+
+                order.setCustomerName(customerName);
+                order.setQuantity(quantity);
+                order.setStatus(status);
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }

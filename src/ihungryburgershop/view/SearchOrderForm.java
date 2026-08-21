@@ -58,24 +58,22 @@ public class SearchOrderForm extends javax.swing.JFrame {
 
         jLabel7.setText("Order Value");
 
-        jTextField1.setText("txtSearchOrderId");
-
         jTextField2.setEditable(false);
-        jTextField2.setText("txtCustomerId");
 
         jTextField3.setEditable(false);
-        jTextField3.setText("txtCustomerName");
 
         jTextField4.setEditable(false);
-        jTextField4.setText("txtBurgerQuantity");
 
         jTextField5.setEditable(false);
-        jTextField5.setText("txtOrderStatus");
 
         jTextField6.setEditable(false);
-        jTextField6.setText("txtOrderValue");
 
         jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Search");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -207,6 +205,12 @@ public class SearchOrderForm extends javax.swing.JFrame {
             jTextField6.setText("");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        HomeForm homeForm = new HomeForm();
+        homeForm.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
