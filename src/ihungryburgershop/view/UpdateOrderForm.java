@@ -187,6 +187,25 @@ public class UpdateOrderForm extends javax.swing.JFrame {
             return;
         }
 
+        // Only PREPARING orders can be updated
+        if (!order.getStatus().equalsIgnoreCase("PREPARING")) {
+
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Order cannot be updated.\n"
+                    + "Only PREPARING orders can be updated.",
+                    "Update Order",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+
+            txtCustomerName.setText("");
+            txtBurgerQuantity.setText("");
+            txtOrderValue.setText("");
+
+            return;
+        }
+
+        // Display order details
         txtCustomerName.setText(order.getCustomerName());
         txtBurgerQuantity.setText(String.valueOf(order.getQuantity()));
 
